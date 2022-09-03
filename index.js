@@ -12,25 +12,26 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 }
 
-async function requisicao(){
-    const handle = 'rachellesdev'
-    const response = await fetch (`https://backend.pegabot.com.br/botometer?socialnetwork=twitter&profile=${handle}&search_for=profile&limit=1`)
+async function requisicao(i){
+    const response = await fetch (`https://backend.pegabot.com.br/botometer?socialnetwork=twitter&profile=${i}&search_for=profile&limit=1`)
     const dados = await response.json()
     const profile = dados.profiles
     const botProbability = profile[0].bot_probability
-    const porcentagem = botProbability.all
+    const porcentagem = Math.ceil(botProbability.all * 100)
     const criterio = botProbability.info
 
+    document.getElementById('porcentagem').innerHTML = porcentagem
+    document.getElementById('info').innerHTML = criterio
     console.log(porcentagem);
     console.log(criterio);
 }
 
 pegaBtn.addEventListener('click', function(){
-        let tabs = 'https://twitter.com/rachellesdev'
-        tabs = tabs.split('.com/');
-        tabs = tabs[1];
-        console.log(tabs);
-        requisicao()   
+        let input = inputEl.value
+        // tabs = tabs.split('.com/');
+        // tabs = tabs[1];
+        console.log(input);
+        requisicao(input)   
 })
 
 tabBtn.addEventListener("click", function(){    
