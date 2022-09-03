@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "SnitchBot",
+    "version": "1.0",
+    "description": "SnitchBot é um delator de perfis bot que deixa o usuário atualizado através de dados capturados da ferramenta Pegabot sobre como ele está sendo enganado por perfis automatizados no Twitter",
+    "default_locale":"pt-br",
+    "author": "Grupo 2D do Hackathon Pegabot 2022",
+    "action": {
+        "default_title": "SnitchBot"
+    }
+}
