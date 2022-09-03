@@ -13,8 +13,8 @@ function getTweets() {
     let found = isFromBot(tweet);
 
     if (found) {
-      console.log('removing tweet');
       tweet.remove();
+      console.log('removing tweet');
     }
   });
 }
@@ -31,8 +31,16 @@ async function getKnownBots() {
   return response.handles;
 }
 
+/**
+ * Determines if the tweet is from a bot, doing so by selecting the @ that tweeted
+ * and if it is inside the bots array, answers yes.
+ * 
+ * @param tweet the HTML element that contains the tweet 
+ * @returns true or false, if the tweet should be removed
+ */
 function isFromBot(tweet) {
   const elements = Array.from(tweet.querySelectorAll('.css-901oao.css-16my406.r-poiln3.r-bcqeeo.r-qvutc0'));
+  let isBot = false;
   let username;
 
   elements.forEach((element) => {
@@ -40,12 +48,14 @@ function isFromBot(tweet) {
 
     if (elementText.match(/@.+/gm)) {
       username = elementText;
+
+      if (bots.includes(username)) {
+        isBot = true;
+      }
     }
   });
 
-  if (!username) return false;
-  if (bots.includes(username)) return true;
-  return false;
+  return (username && isBot);
 }
 
 async function verifyProfile(username) {
