@@ -1,7 +1,10 @@
 // const bots = await getKnownBots();
 const bots = ['@jovemnerd', '@azaghal'];
 
-document.addEventListener('DOMNodeInserted', (e) => getTweets(document.body));
+const config = { attributes: true, childList: true, subtree: true };
+const observer = new MutationObserver(getTweets);
+
+observer.observe(document.querySelector('.css-1dbjc4n'), config);
 // verifyProfile('blckjzz');
 
 function getTweets() {
