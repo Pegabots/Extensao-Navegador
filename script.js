@@ -1,24 +1,39 @@
 document.addEventListener('DOMNodeInserted', (e) => getTweets(document.body));
+// verifyProfile('blckjzz');
 
 function getTweets() {
   let tweets = Array.from(document.getElementsByTagName('article'));
   tweets.forEach((tweet) => {
-    let found = findText(tweet);
+    let found = isFromBot(tweet);
 
     if (found) {
       tweet.remove();
     }
-  })
+  });
 }
 
-function findText(element) {
-  if (element.hasChildNodes()) {
-    let find = [];
-    element.childNodes.forEach((child) => find.push(findText(child)));
-    return find.includes(true);
-  } else if (element.nodeType === Text.TEXT_NODE) {
-    return element.textContent.match(/Red Bull/gi) ? true : false;
+function isFromBot(username) {
+  // Detect if username is in PegaBot's database.
+  
+  return false;
+}
+
+async function verifyProfile(username) {
+  const url = `https://backend.pegabot.com.br/botometer?socialnetwork=twitter&profile=${username}&search_for=profile&limit=1`;
+  const pegaBotRequest = new Request(url);
+  
+  const response = await fetch(pegaBotRequest)
+  
+  if (!response.ok) {
+    throw new Error('HTTP Error!');
   }
 
-  return false;
+  const body = await response.json();
+  if (body.profiles.bot_probability > 0.7) {
+    console.log('user probably is bot');
+    return true;
+  } else {
+    console.log('user probably isn\'t bot');
+    return false;
+  }
 }
