@@ -1,12 +1,79 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Pegabot feat. Botinux</title>
+    <style>
+        body {
+            width: auto;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #FBFBFB;
+            overflow-x: auto;
+            overflow-y: auto;
+            margin: 0;
+            padding: 4px;
+            border: solid 5px #974ADF;
+            background-image: linear-gradient(#FBFBFB, #FF8E09);
+        }
+
+        .logopegabot {
+            text-align: center;
+            height: 200px;
+        }
+
+        button {
+            position: absolute;
+            left: 100px;
+            margin-top: 12px;
+            width: 100px;
+            height: 20px;
+            background: transparent;
+            border: none;
+        }
+            button:hover {
+                animation: botao forwards 250ms;
+            }
+
+        #ondasroxo {
+            width: 300px;
+            height: 300px;
+            height: auto;
+            transform: scaleX(1.1) scaleY(0.9);
+        }
+
+        #pessoa {
+            width: 100%;
+            color: #ca7108;
+        }
+
+        @keyframes botao {
+            0% {
+            }
+            100% {
+            transform: scale(1.1);
+            }
+        }
+    </style>
 </head>
 <body>
-    <main><div>Testando...</div></main>
-    <script src="busca.js"></script>
+    <script>
+        function ativarLink(url) {
+            url = [...url].shift().join('');
+            document.querySelector('#url').href = `https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${url}&search_for=profile&limit=12`;
+            document.querySelector('#url').click();
+            console.log('Clicked!');
+        }
+    </script>
+
+    <img src="img\logopegabot.svg" id="logopegabot">
+    <img src="img\ondasroxo.svg" id="ondasroxo">
+    <a href="" style="display: none;" id="url"></a>
+    <input type="text" value="" placeholder="@pegabot" id="pessoa">
+    <button name="button" onclick="ativarLink(document.querySelector('#pessoa').value)"><img src="img\botao.svg"></button>
+
 </body>
 </html>
