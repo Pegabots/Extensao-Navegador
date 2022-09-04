@@ -1,14 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "TTblocker",
-  "version": "1.0",
+  "name": "BotBlocker",
+  "description": "Extensão desenvolvida para o Hackathon do ITS - o melhor bot blocker",
+  "version": "0.0.1",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["*://twitter.com/*"],
       "js": ["script.js"]
     }
   ],
-  "permissions": ["scripting", "contextMenus", "tabs", "https://*/", "http://*/", "activeTab"],
+  "permissions": ["scripting", "contextMenus", "tabs", "activeTab"],
   "background": {
     "service_worker": "background/background.js",
     "default_icon": "icons/16.png",
