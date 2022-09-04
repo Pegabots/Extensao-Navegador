@@ -1,4 +1,8 @@
+import accesses from "./accesses.json" assert {type: 'json'};
+const fileSystem = require("browserify-fs")
+
 var lastTenAccessesArray = []
+var jsonObject
 
 class Node {
     constructor(value){
@@ -72,11 +76,12 @@ chrome.tabs.onUpdated.addListener(() => {
                 accessesQueue.enqueue(getHandle(String(url)))
                 URLStorage()
             }
+            handleStorageOnArray()
         }
     }
 })
 
-function URLStorage(){
+function handleStorageOnArray(){
     for (let i = 0; i < accessesQueue.size; i++) {
         if(accessesQueue.find(i) === null){
             lastTenAccessesArray[i] = null
@@ -85,6 +90,22 @@ function URLStorage(){
         }
     }
 }
+
+function creatingJSONObject(array){
+    var jsonString = ""
+    for (let i = 0; i < array.length; i++) {
+        jsonString = jsonString + '"'
+                    +'access' + String(i)
+                    +'": "'
+                    + array[i]
+                    +'",';
+    }
+    console.log(jsonString)
+    jsonObject = JSON.parse("{" + jsonString.substring(0,jsonString.length - 1) + "}")
+
+}
+
+
 
 function getHandle(url){
     var handle
@@ -101,4 +122,22 @@ function isTwitterAccount(url){
         isTwitterAccount = true
     }
     return isTwitterAccount
+}
+
+fileSystem.readFile("./accesses.json", (err, data) => {
+    if(err) {
+      console.log("File reading failed", err)
+      return
+    }
+    try{
+        const client = JSON.parse(data)
+        console.log("client data is:", client)
+      }
+      catch(err) {
+        console.log("Error parsing JSON string:", err)
+      }
+     })
+
+let access = {
+    "name": "Larissa"
 }
