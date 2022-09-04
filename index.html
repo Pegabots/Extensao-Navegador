@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extensão - Pegabot</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/pegabot.png" alt="Logo Pegabot" />
+      <h1 class="pegaTitle">PEGABOT</h1>
+    </div>
+    <div class="input-div">
+      <input
+        required=""
+        type="text"
+        id="input-el"
+        name="text"
+        autocomplete="off"
+        class="input"
+      />
+      <label class="user-label">@ perfil no twitter</label>
+    </div>
+    <div class="btnContainer">
+      <button class="fancy-btn" id="pegaBot">Pegabot é bot?</button>
+      <button class="fancy-btn" id="delete-btn">DELETE ALL</button>
+    </div>
+    <p id="digitar" class="digitar"></p>
+    <section class="resContainer">
+      <div class="avatar">
+        <div class="img-info" id="img"></div>
+      </div>
+      <div class="info-div">
+        <p class="porcentagem" id="porcentagem"></p>
+        <div class="info" id="info"></div>
+        <div id="link"></div>
+      </div>
+    </section>
+
+    <hr />
+
+    <ul id="ul-el" class="lista"></ul>
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
