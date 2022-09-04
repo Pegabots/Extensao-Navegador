@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Extensão - PegaBot",
+    "description": "Analisa as contas de Twitter presentes em uma página, emitindo alertas sobre as probabilidades de serem bots. Possui também um popup, que permite pesquisar por usuários em específico.",
+    "version": "1.1",
+    
+    "browser_action":
+    {
+        "default_icon": "favicon-32x32.png",
+        "default_popup": "popup.html",
+        "default_title": "Pegabot - Extensão"
+    },
+
+  "content_scripts": [
+    {
+      "matches": [ "https://twitter.com/*" ],
+      "css": [ "Animacoes.css" ],
+      "js": [ "busca.js" ]
+    }
+  ],
+
+  "background": {
+    "scripts":  ["popup.js"]
+  }
+    
+}
