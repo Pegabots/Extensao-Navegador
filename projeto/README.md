@@ -1,0 +1,2 @@
+# Extensão Pegabot - Chrome
+
