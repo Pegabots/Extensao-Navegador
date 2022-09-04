@@ -1,0 +1,47 @@
+body{
+  font-family: 'Inter', sans-serif;
+  padding: 10px;
+}
+
+.header{
+  max-width: 150px;
+  margin: 0 auto 20px;
+}
+
+.header .header_logo{
+  max-width: 100%;
+}
+
+.form_label{
+  color: #878787;
+  font-size: 0.625rem;
+  font-weight: bold;
+  padding: 5px 0;
+  margin-top: 40px;
+  display: block;
+}
+
+.form_input{
+  font-size: 0.625rem;
+  font-weight: 500;
+  font-style: italic;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 1px 2px 0 rgba(54, 8, 122, .5);
+  width: 200px;
+  padding: 10px;
+  margin: 5px 0 20px; 
+}
+
+.form_btn{
+  background-color: #f79017;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 0 0 #cf7914;
+  border-radius: 15px;
+  padding: 5px 40px;
+  margin: auto;
+  display: block;
+}

@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "version": "2.0",
+  "name": "Pegabot",
+  "description": "A extensão Pegabot analisa um perfil do Twitter e apresenta um relatório com uma pontuação indicando a probabilidade do usuário pesquisado ser um bot. Quanto maior a pontuação, maior a chance de ser um bot.",
+  "author": "Grupo 2A da Equipe Desenvolvimento e Algoritmo da Hackathon Pegabot - Mariana, Sofia e Cecília",
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
