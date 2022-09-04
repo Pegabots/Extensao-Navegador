@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap");
 
 body {
   margin: 0;
@@ -7,12 +7,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   min-width: 400px;
   background-color: #442e79;
-  font-family: 'Mukta', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 img {
-  width: 30%;
-  margin: auto;
+  width: 70px;
+  margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 input {
@@ -31,15 +32,21 @@ button {
   border: none;
   font-weight: bold;
   text-transform: uppercase;
-  box-shadow: 0 4px 0 0 #aa4412;
-  font-size: 15px;
+  font-size: 0.8rem;
+}
+
+button:hover {
+  box-shadow: 0 4px 0 0 #bface0;
+}
+
+.btn:hover {
+  box-shadow: 0px 4px 0 0 #645caa;
 }
 
 ul {
   margin-top: 20px;
   list-style: none;
   padding-left: 0;
-  ;
 }
 
 li {
@@ -47,7 +54,7 @@ li {
 }
 
 a {
-  color: purple;
+  color: #ff8e09;
 }
 
 /* Class Section */
@@ -57,12 +64,12 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
 }
 
-.pegaTitle{
+.pegaTitle {
   margin-top: -4%;
-  color: #FFFF;
+  color: #ffff;
 }
 
 /* Input Section */
@@ -124,18 +131,12 @@ input:valid ~ label {
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .porcentagem:hover,
 .info:hover {
   text-decoration: underline #ff8e09;
   margin-bottom: 0.6em;
-}
-
-.avatar {
-  float: left;
-  box-sizing: border-box;
-}
-
-.info-div {
 }

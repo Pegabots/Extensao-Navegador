@@ -66,14 +66,14 @@ const dados = [
 
 pegaBtn.addEventListener('click', function () {
     const inputI = inputEl.value
-
+    
     if (inputI == '') {
         document.getElementById('digitar').innerHTML = 'Por favor, digite um nome de usuário'
     } else {
         const input = inputI.replace("@", '')
         console.log(input)
         // requisicao(input)
-
+        
         const index = Math.floor(Math.random() * 7)
 
         const porcentagem = dados[index].all
@@ -85,11 +85,10 @@ pegaBtn.addEventListener('click', function () {
         localStorage.setItem("mySearch", JSON.stringify(mySearch))
         render(mySearch)
         document.getElementById('digitar').innerHTML = ''
-        document.getElementById('porcentagem').innerHTML = porcentagem + '%'
+        document.getElementById('porcentagem').innerHTML = `O pefil tem ${porcentagem}% de chance de ser automatizado.`
         document.getElementById('info').innerHTML = criterio
         document.querySelector('#img').innerHTML = `<br><img width="70px" height="70px" src="${foto}">`;
         document.querySelector('#link').innerHTML = `<a href="http://https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${input}&search_for=profile&limit=12">Análise completa</a>`
-    }
 
 })
 
