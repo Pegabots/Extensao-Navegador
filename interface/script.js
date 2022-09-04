@@ -57,19 +57,19 @@ function getURL(){
 var accessesQueue = new Queue()
 chrome.tabs.onUpdated.addListener(() => {
     getURL()
-    if(String(url) != "undefined" ){
+    if(isTwitterAccount(String(url))){
         var auxNodeValue
         if(accessesQueue.size == 0){
             auxNodeValue = null
         }else{
             auxNodeValue = accessesQueue.find(accessesQueue.size - 1)
         }
-        if(String(url) != auxNodeValue && !(auxNodeValue == null && accessesQueue.size > 0)){
+        if(getHandle(String(url)) != auxNodeValue && !(auxNodeValue == null && accessesQueue.size > 0)){
             if(accessesQueue.size == 10){
                 accessesQueue.dequeue()
-                accessesQueue.enqueue(String(url))
+                accessesQueue.enqueue(getHandle(String(url)))
             }else{
-                accessesQueue.enqueue(String(url))
+                accessesQueue.enqueue(getHandle(String(url)))
                 URLStorage()
             }
         }
@@ -86,4 +86,19 @@ function URLStorage(){
     }
 }
 
+function getHandle(url){
+    var handle
+    if(isTwitterAccount(url)){
+        handle = url.substring(url.length, url.lastIndexOf('/') + 1)
+    }
+    return handle
+}
 
+function isTwitterAccount(url){
+    var regex = /^(https\:\/\/twitter\.com\/)/
+    var isTwitterAccount = false
+    if(regex.test(url)){
+        isTwitterAccount = true
+    }
+    return isTwitterAccount
+}
