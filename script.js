@@ -7,6 +7,10 @@ const observer = new MutationObserver(getTweets);
 observer.observe(document.querySelector('.css-1dbjc4n'), config);
 // verifyProfile('blckjzz');
 
+/**
+ * Iterate over tweets on HTML and remove them from the page if they are from
+ * a known bot account.
+ */
 function getTweets() {
   let tweets = Array.from(document.getElementsByTagName('article'));
   tweets.forEach((tweet) => {
@@ -58,11 +62,19 @@ function isFromBot(tweet) {
   return (username && isBot);
 }
 
+/**
+ * Given a username, makes a request to the PegaBot's API to assert if it is or
+ * not from a bot.
+ * 
+ * @param username the suspect's twitter handle 
+ * @returns a boolean value, representing if it is a bot
+ */
 async function verifyProfile(username) {
   const url = `https://backend.pegabot.com.br/botometer?socialnetwork=twitter&profile=${username}&search_for=profile&limit=1`;
   const response = await apiGet(url);
+  const bot_probability_threshold = 0.7
 
-  if (response.profiles.bot_probability > 0.7) {
+  if (response.profiles.bot_probability > bot_probability_threshold) {
     console.log('user probably is bot');
     return true;
   } else {
@@ -71,6 +83,13 @@ async function verifyProfile(username) {
   }
 }
 
+/**
+ * Performs an API get to the given URL
+ * Deals with possible errors and converts the result
+ * 
+ * @param url get request path 
+ * @returns response as an javascript object
+ */
 async function apiGet(url) {
   const pegaBotRequest = new Request(url);
   
