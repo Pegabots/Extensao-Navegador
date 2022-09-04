@@ -5,7 +5,7 @@
  * @param url get request path 
  * @returns response as an javascript object
  */
-async function apiGet(url) {
+export async function apiGet(url) {
   const pegaBotRequest = new Request(url);
   
   const response = await fetch(pegaBotRequest)

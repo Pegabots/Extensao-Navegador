@@ -4,7 +4,7 @@ const bots = ['@jovemnerd', '@azaghal'];
 const config = { attributes: true, childList: true, subtree: true };
 const observer = new MutationObserver(getTweets);
 
-observer.observe(document.querySelector('.css-1dbjc4n'), config);
+observer.observe(document, config);
 // verifyProfile('blckjzz');
 
 /**
@@ -16,7 +16,7 @@ function getTweets() {
   tweets.forEach((tweet) => {
     let found = isFromBot(tweet);
 
-    if (found) {
+    if (found) {      
       tweet.remove();
       console.log('removing tweet');
     }
