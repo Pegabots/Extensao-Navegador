@@ -103,7 +103,7 @@ function render(handles) {
             </li>
         `
     }
-    ulEl.innerHTML = 'Perfis já verificados:' + listItems
+    ulEl.innerHTML = 'Perfis verificados:' + listItems
 }
 
 deleteBtn.addEventListener("click", function () {

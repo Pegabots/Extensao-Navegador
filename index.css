@@ -61,6 +61,11 @@ a {
   color: #ff8e09;
 }
 
+hr {
+  /* width: 90%; */
+  border: 1px solid #645caa;
+  margin: 10px 0;
+}
 /* Class Section */
 
 .container {
