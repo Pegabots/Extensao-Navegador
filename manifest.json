@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "Leads tracker",
+    "name": "Extensão - pegabot",
     "action": {
         "default_popup": "index.html",
-        "default_icon": "chatbot.png"
+        "default_icon": "pegabot.png"
     },
     "permissions": [
         "tabs"
