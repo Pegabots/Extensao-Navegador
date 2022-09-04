@@ -1,5 +1,8 @@
 const form = document.querySelector("#form");
 const reportPage = document.querySelector(".report-page");
+const reportUsername = document.querySelector(".report-username");
+const reportPercent = document.querySelector(".report-percent");
+const reportText = document.querySelector(".report-text");
 
 function sendForm(event){
   event.preventDefault();
@@ -21,6 +24,9 @@ form.addEventListener("submit", sendForm);
 //      //(Opcional) form.innerHTML = `<p class="result-text">Resultado</p>`
 //         form.classList.add("hidden");
 //         reportPage.classList.add("active");
+//         reportUsername.innerText = `${user.name}`;
+//         reportPercent.innerText = `${user.probability}`;
+//         reportText.innerText = `${user.message}`;
 //       } else {
 //         alert("Digite algum usuário!");
 //       }
