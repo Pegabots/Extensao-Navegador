@@ -1,4 +1,4 @@
-let myLeads = []
+// let myLeads = []
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
@@ -6,10 +6,10 @@ const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 const tabBtn = document.getElementById("tab-btn")
 const pegaBtn = document.getElementById("pegaBot")
 
-if (leadsFromLocalStorage) {
-    myLeads = leadsFromLocalStorage
-    render(myLeads)
-}
+// if (leadsFromLocalStorage) {
+//     myLeads = leadsFromLocalStorage
+//     render(myLeads)
+// }
 
 const dados = [
         {
@@ -65,7 +65,8 @@ const dados = [
 // }
 
 pegaBtn.addEventListener('click', function () {
-    let input = inputEl.value
+    const inputI = inputEl.value
+    const input = inputI.replace("@", '')
     console.log(input)
     // requisicao(input)
 
@@ -78,6 +79,7 @@ pegaBtn.addEventListener('click', function () {
     document.getElementById('porcentagem').innerHTML = porcentagem + '%'
     document.getElementById('info').innerHTML = criterio
     document.querySelector('#img').innerHTML = `<br><img width="70px" height="70px" src="${foto}">`;
+    document.querySelector('#link').innerHTML = `<a href="http://https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${input}&search_for=profile&limit=12">Clique aqui para acessar a análise completa.</a>`
 })
 
 tabBtn.addEventListener("click", function () {
@@ -88,25 +90,25 @@ tabBtn.addEventListener("click", function () {
     })
 })
 
-function render(leads) {
-    let listItems = ""
-    for (let i = 0; i < leads.length; i++) {
-        listItems += `
-            <li>
-                <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
-                </a>
-            </li>
-        `
-    }
-    ulEl.innerHTML = listItems
-}
+// function render(leads) {
+//     let listItems = ""
+//     for (let i = 0; i < leads.length; i++) {
+//         listItems += `
+//             <li>
+//                 <a target='_blank' href='${leads[i]}'>
+//                     ${leads[i]}
+//                 </a>
+//             </li>
+//         `
+//     }
+//     ulEl.innerHTML = listItems
+// }
 
-deleteBtn.addEventListener("dblclick", function () {
-    localStorage.clear()
-    myLeads = []
-    render(myLeads)
-})
+// deleteBtn.addEventListener("dblclick", function () {
+//     localStorage.clear()
+//     myLeads = []
+//     render(myLeads)
+// })
 
 // inputBtn.addEventListener("click", function() {
 //     myLeads.push(inputEl.value)
