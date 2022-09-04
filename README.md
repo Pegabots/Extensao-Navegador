@@ -6,7 +6,23 @@
 Neste repositório encontra-se a extensão para navegadores do Pegabot.
 
 ## Aviso
-As primeiras modificações (commits) enviados pelo grupo 2C estão em [outro repositório](https://github.com/edujpmouta/challenge). Lá, é possível ver o andamento da formulação da extensão. 
+As primeiras modificações (commits) enviados pelo grupo 2C estão em [outro repositório](https://github.com/edujpmouta/challenge).  
+Lá, é possível ver o andamento da formulação da extensão.  
+  
+Equipe 2C (Botinux):
++ Guilherme Rodrigues (desenvolvimento)
++ Eduardo Mouta (desenvolvimento)
++ Beatriz Karoline (design)
++ Jade Simões (design)
+
+## Funcionalidades
+Essa extensão foi elaborada para a Hackathon ITS - Pegabot, e tem como principal objetivo  
+utilizar da ferramenta de identificação de bots para lutar contra a fake news e detecctar atividades suspeitas.  
+Para isso, a Extensão de Navegador Pegabot
++ Em comunicação com a API do Pegabot, calcula a probabilidade de cada usuário em uma página do Twitter ser um robô,  
+emitindo alertas ao longo da página, à medida que processa as informações.
++ Disponibiliza uma janela pop-up, que recebe como dado um nome de usuário e abre a página do Pegabot, já calculando uma análise mais aprofundanda.
+
 
 ## Instruções para Rodar Extensão (Chrome)
 1. Aperte no botão "Code';
