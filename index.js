@@ -89,7 +89,7 @@ pegaBtn.addEventListener('click', function () {
         document.getElementById('info').innerHTML = criterio
         document.querySelector('#img').innerHTML = `<br><img width="70px" height="70px" src="${foto}">`;
         document.querySelector('#link').innerHTML = `<a href="http://https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${input}&search_for=profile&limit=12">Análise completa</a>`
-
+    }
 })
 
 function render(handles) {
