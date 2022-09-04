@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Extensão - PegaBot",
-    "description": "Certification website",
+    "description": "Analisa as contas de Twitter presentes em uma página, emitindo alertas sobre as probabilidades de serem bots. Possui também um popup, que permite pesquisar por usuários em específico.",
     "version": "1.1",
     
     "browser_action":
@@ -10,12 +10,17 @@
         "default_popup": "popup.html",
         "default_title": "Pegabot - Extensão"
     },
-    
-    "content_scripts":[
+
+  "content_scripts": [
     {
       "matches": [ "https://twitter.com/*" ],
-      "css": ["Animacoes.css"],
-        "js": ["busca.js"]
-    }]
+      "css": [ "Animacoes.css" ],
+      "js": [ "busca.js" ]
+    }
+  ],
+
+  "background": {
+    "scripts":  ["popup.js"]
+  }
     
 }
