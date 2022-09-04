@@ -5,9 +5,12 @@
 
 Neste repositório encontra-se a extensão para navegadores do Pegabot.
 
+## Aviso
+As primeiras modificações (commits) enviados pelo grupo 2C estão em [outro repositório](https://github.com/edujpmouta/challenge). Lá, é possível ver o andamento da formulação da extensão. 
+
 ## Background
 
-O objetivo dessa extensão é permitir analisar um perfil de usuário do Twitter sem a necessidade de sair da página onde estiver. Se você vir o @ de um perfil em algum site, basta colocar na extensão e ela realizará uma análise chamando um endpoint da API do Pegabot.
+O objetivo dessa extensão é permitir analisar um perfil de usuário do Twitter sem a necessidade de sair da página onde estiver. Se você vir o @ de um perfil em algum site, basta deixar a extensão aberta e ela realizará uma análise chamando um endpoint da API do Pegabot.
 
 ## Código de Conduta
 
