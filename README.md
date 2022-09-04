@@ -8,6 +8,20 @@ Neste repositório encontra-se a extensão para navegadores do Pegabot.
 ## Aviso
 As primeiras modificações (commits) enviados pelo grupo 2C estão em [outro repositório](https://github.com/edujpmouta/challenge). Lá, é possível ver o andamento da formulação da extensão. 
 
+## Instruções para Rodar Extensão (Chrome)
+1. Aperte no botão "Code';
+2. Clique em Download ZIP;
+3. Vai ser baixado arquivo "Extensao-Navegador-main";
+4. Extraia a pasta do arquivo ZIP instalado;
+5. Abra o navegador;
+6. Busque o ícone ou botão de extensões;
+7. Clique em "Gerenciar Extensões";
+8. Ative "Modo Desenvolvedor";
+9. Clicque em "Carregar Sem Compactação";
+10. Clique na pasta recém-extraída "Extensao-Navegador-main";
+11. Clique na pasta "Configuracoes";
+12. A extensão será instalada e estará pronta para uso.
+
 ## Background
 
 O objetivo dessa extensão é permitir analisar um perfil de usuário do Twitter sem a necessidade de sair da página onde estiver. Se você vir o @ de um perfil em algum site, basta deixar a extensão aberta e ela realizará uma análise chamando um endpoint da API do Pegabot.
