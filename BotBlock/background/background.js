@@ -1,4 +1,4 @@
-import { apiGet } from '../tools.js';
+import { apiGet } from '../../tools.js';
 
 let contextMenuItem = {
   'id': 'pegaBot',
