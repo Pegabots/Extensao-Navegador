@@ -81,11 +81,11 @@ pegaBtn.addEventListener('click', function () {
     localStorage.setItem("mySearch", JSON.stringify(mySearch) )
     render(mySearch)
 
-    document.getElementById('porcentagem').innerHTML = porcentagem + '%'
+    document.getElementById('porcentagem').innerHTML = `O pefil tem ${porcentagem}% de chance de ser automatizado.`
     document.getElementById('info').innerHTML = criterio
     document.querySelector('#img').innerHTML = `<br><img width="70px" height="70px" src="${foto}">`;
     document.querySelector('#link').innerHTML = `<a href="http://https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${input}&search_for=profile&limit=12">Análise completa</a>`
-})
+})  
 
 // tabBtn.addEventListener("click", function () {
 //     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
