@@ -60,20 +60,12 @@
     </style>
 </head>
 <body>
-    <script>
-        function ativarLink(url) {
-            url = [...url].shift().join('');
-            document.querySelector('#url').href = `https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${url}&search_for=profile&limit=12`;
-            document.querySelector('#url').click();
-            console.log('Clicked!');
-        }
-    </script>
-
     <img src="img\logopegabot.svg" id="logopegabot">
     <img src="img\ondasroxo.svg" id="ondasroxo">
-    <a href="" style="display: none;" id="url"></a>
+    <a href="" style="display: none;" id="url" target="_blank"></a>
     <input type="text" value="" placeholder="@pegabot" id="pessoa">
-    <button name="button" onclick="ativarLink(document.querySelector('#pessoa').value)"><img src="img\botao.svg"></button>
+    <button name="button" type="button" id="carregar"><img src="img\botao.svg"></button>
 
+    <script src="popup.js"></script>
 </body>
 </html>
