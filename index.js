@@ -65,7 +65,8 @@ const dados = [
 // }
 
 pegaBtn.addEventListener('click', function () {
-    let input = inputEl.value
+    const inputI = inputEl.value
+    const input = inputI.replace("@", '')
     console.log(input)
     // requisicao(input)
 
@@ -78,6 +79,7 @@ pegaBtn.addEventListener('click', function () {
     document.getElementById('porcentagem').innerHTML = porcentagem + '%'
     document.getElementById('info').innerHTML = criterio
     document.querySelector('#img').innerHTML = `<br><img width="70px" height="70px" src="${foto}">`;
+    document.querySelector('#link').innerHTML = `<a href="http://https://pegabot.com.br/resultados?socialnetwork=twitter&profile=%40${input}&search_for=profile&limit=12">Clique aqui para acessar a análise completa.</a>`
 })
 
 tabBtn.addEventListener("click", function () {
@@ -108,9 +110,9 @@ deleteBtn.addEventListener("dblclick", function () {
     render(myLeads)
 })
 
-// inputBtn.addEventListener("click", function() {
-//     myLeads.push(inputEl.value)
-//     inputEl.value = ""
-//     localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-//     render(myLeads)
-// })
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    inputEl.value = ""
+    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+    render(myLeads)
+})
