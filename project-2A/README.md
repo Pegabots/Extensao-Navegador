@@ -20,4 +20,4 @@
 * Site do [Pegabot](https://pegabot.com.br/)
 
 ## Autores do projeto
-* 
+* Grupo 2A da Equipe Desenvolvimento e Algoritmo da Hackathon Pegabot - Mariana, Sofia e Cecília
