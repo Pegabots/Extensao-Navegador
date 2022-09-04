@@ -107,7 +107,12 @@ function render(handles) {
 }
 
 deleteBtn.addEventListener("click", function () {
-    localStorage.clear()
-    mySearch = []
-    render(mySearch)
+
+    if (mySearch.length == 0) {
+        document.getElementById('digitar').innerHTML = 'Não existem perfis verificados.'
+    } else {
+        localStorage.clear()
+        mySearch = []
+        render(mySearch)
+    }    
 })
