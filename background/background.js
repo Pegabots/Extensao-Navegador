@@ -6,15 +6,25 @@ let contextMenuItem = {
   'contexts': ['link'],
 };
 
+/**
+ * Triggered by every click on a context menu, this function deals with the
+ * clicks on the BotBlock menu and try to verify the Twitter handle, showing
+ * the results to the user through script injection. 
+ * 
+ * @param info the context that was clicked
+ * @param tab the current active tab
+ * @returns void
+ */
 async function onClickFunction(info, tab) {
   if (info.menuItemId !== contextMenuItem.id) {
       return;
   }
 
+  // Clicked link must be like: https://twitter.com/*, where * is the username
   const regex = new RegExp(/^https:\/\/twitter\.com\/([^\/]+)\/?.*$/gi);
   const match = regex.exec(info.linkUrl);
 
-  if (match && match[1]) {
+  if (match && match[1]) { // assuring it found a remembered group in the url
     const twitterHandle = '@' + match[1];
 
     chrome.scripting.executeScript({
@@ -52,6 +62,14 @@ async function verifyProfile(username) {
   }
 }
 
+/**
+ * This is far from perfect, but it was the best solution to the problem of
+ * creating a modal so the user could receive the answer to its request about
+ * the profile. It will create on JavaScript the elements of the modal, 
+ * inserting in them their classes and styles, as data, and adding to DOM.
+ * 
+ * It would be interesting to try other approaches to this problem.
+ */
 function createModalBase() {
   const parentDiv = document.createElement('div');
   const contentDiv = document.createElement('div');
@@ -59,17 +77,19 @@ function createModalBase() {
   const close = document.createElement('span');
   const text = document.createElement('p');
 
+  // main div creation
   parentDiv.style.display = 'block';
   parentDiv.style.position = 'fixed';
-  parentDiv.style.zIndex = 1; /* Sit on top */
-  parentDiv.style.paddingTop = '100px'; /* Location of the box */
+  parentDiv.style.zIndex = 1;
+  parentDiv.style.paddingTop = '100px';
   parentDiv.style.left = '50%';
   parentDiv.style.top = 0;
-  parentDiv.style.width = 'auto'; /* Full width */
-  parentDiv.style.height = 'auto'; /* Full height */
-  parentDiv.style.overflow = 'null'; /* Enable scroll if needed */
+  parentDiv.style.width = 'auto';
+  parentDiv.style.height = 'auto';
+  parentDiv.style.overflow = 'null';
   parentDiv.id = 'parentDiv';
 
+  // div to store all content
   contentDiv.style.backgroundColor = '#fefefe';
   contentDiv.style.margin = 'auto';
   contentDiv.style.padding = '20px';
@@ -77,6 +97,7 @@ function createModalBase() {
   contentDiv.style.width = '80%';
   contentDiv.id = 'contentDiv';
 
+  // spinner, or loader, to show user the application hasn't stopped
   spinner.style.border =  '16px solid #f3f3f3';
   spinner.style.borderTop =  '16px solid #3498db';
   spinner.style.borderRadius = '50%';
@@ -85,6 +106,7 @@ function createModalBase() {
   spinner.style.animation = 'spin 2s linear infinite';
   spinner.id = 'spinner';
 
+  // style element to give the spinner some movement
   const keyFrames = document.createElement('style');
   keyFrames.innerHTML = `@keyframes spin {
     0% { transform: rotate(0deg); }
@@ -92,6 +114,7 @@ function createModalBase() {
   }`;
   spinner.appendChild(keyFrames);
 
+  // closing span
   close.style.color = '#aaaaaa';
   close.style.float = 'right';
   close.style.fontSize = '28px';
@@ -99,19 +122,23 @@ function createModalBase() {
   close.textContent = 'x';
   close.id = 'close';
 
+  // The text that the user will see when the modal is created
   text.textContent = 'Aguarde!';
   text.id = 'text';
 
+  // Inserting the recent created elements to the document
   contentDiv.appendChild(close);
   contentDiv.appendChild(text);
   contentDiv.appendChild(spinner);
   parentDiv.appendChild(contentDiv);
   document.body.appendChild(parentDiv);
 
+  // Deals with the user clicking on the span to close
   close.onclick = function() {
     document.getElementById('parentDiv').remove();
   }
 
+  // Deals with the user clicking outside the modal to close
   window.onclick = function(event) {
     if (event.target === parentDiv) {
       document.getElementById('parentDiv').remove();
@@ -119,13 +146,20 @@ function createModalBase() {
   }
 }
 
+/**
+ * Using the elements created by the previous function on the document, this
+ * function alters the text and remove the spinner, to show the user the result
+ * of their request.
+ * 
+ * @param username the twitter handle of the suspect profile 
+ * @param isBot boolean value, the answer if the profile is indeed a bot or not 
+ * @returns void
+ */
 function showResults(username, isBot) {
   const text = document.getElementById('text');
-
   if (!text) return;
 
   const spinner = document.getElementById('spinner');
-
   if (spinner) spinner.remove();
 
   if (isBot) {

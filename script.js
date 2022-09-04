@@ -5,7 +5,6 @@ const config = { attributes: true, childList: true, subtree: true };
 const observer = new MutationObserver(getTweets);
 
 observer.observe(document, config);
-// verifyProfile('blckjzz');
 
 /**
  * Iterate over tweets on HTML and remove them from the page if they are from
