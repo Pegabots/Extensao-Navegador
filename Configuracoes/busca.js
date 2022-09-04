@@ -10,7 +10,7 @@ function mudancasNaPagina(handle, indice, chanceDeSerBot)
     //console.log(`---\nUsuário em Análise: ${handle}\nChance de ser bot: ${chanceDeSerBot}\n---`);
     //O que fazer na página dependendo do resultado
     if (chanceDeSerBot >= 0.9 && !document.querySelectorAll('article')[indice].querySelector(".extPegaBot")) {
-        //Ocultar tweet, mas permitindo que o usuário o revele, caso ache necessário
+        //Ocultar tweet
         document.querySelectorAll('article')[indice].querySelector('span').style.display = 'none';
 
     }
