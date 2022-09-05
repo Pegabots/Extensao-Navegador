@@ -1,5 +1,4 @@
-import accesses from "./accesses.json" assert {type: 'json'};
-const fileSystem = require("browserify-fs")
+import * as fileSystem from './accesses.json' assert { type: "json" };
 
 var lastTenAccessesArray = []
 var jsonObject
@@ -74,9 +73,10 @@ chrome.tabs.onUpdated.addListener(() => {
                 accessesQueue.enqueue(getHandle(String(url)))
             }else{
                 accessesQueue.enqueue(getHandle(String(url)))
-                URLStorage()
+                handleStorageOnArray()
             }
             handleStorageOnArray()
+            console.log(fileSystem[0])
         }
     }
 })
@@ -89,6 +89,7 @@ function handleStorageOnArray(){
             lastTenAccessesArray[i] = accessesQueue.find(i)
         }
     }
+    return lastTenAccessesArray
 }
 
 function creatingJSONObject(array){
@@ -102,10 +103,8 @@ function creatingJSONObject(array){
     }
     console.log(jsonString)
     jsonObject = JSON.parse("{" + jsonString.substring(0,jsonString.length - 1) + "}")
-
+    return jsonObject
 }
-
-
 
 function getHandle(url){
     var handle
@@ -122,22 +121,4 @@ function isTwitterAccount(url){
         isTwitterAccount = true
     }
     return isTwitterAccount
-}
-
-fileSystem.readFile("./accesses.json", (err, data) => {
-    if(err) {
-      console.log("File reading failed", err)
-      return
-    }
-    try{
-        const client = JSON.parse(data)
-        console.log("client data is:", client)
-      }
-      catch(err) {
-        console.log("Error parsing JSON string:", err)
-      }
-     })
-
-let access = {
-    "name": "Larissa"
 }
