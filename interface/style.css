@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+ 
+html{
+    width: fit-content;
+    height: fit-content;
+    padding: 2vh;
+}
+
+body{
+    width: inherit;
+    height: inherit;
+}
+
+h2{
+    font-size: 200%;
+    margin-bottom: 2vh;
+}
+
+ol{
+    margin: 1vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:stretch;
+    gap: 1.5vh;
+    list-style: none;
+    height: fit-content;
+}
+
+li{
+    height: fit-content;
+    padding: 1vh;
+    position: relative;
+    transition: all .3s;
+    border-left: 1vh solid blueviolet;
+}
+
+.pegabot-bot-probability{
+    position: absolute;
+    right: 1vh;
+    display: inline-block;
+}
+
+li:hover{
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1vh 2vh;
+    border-left: 1.5vh solid blueviolet;
+}
+
+.texts{
+    white-space: nowrap;
+}
+
+#progress-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5vh;
+    align-items: center ;
+}
+
+progress{
+    height: 7vh;
+    width: 50%;
+}
+progress::-webkit-progress-value{
+    background:gold;
+}
+progress::-webkit-progress-bar{
+    background:gold;
+}
+progress::-moz-progress-bar{
+    background:gold;
+}
